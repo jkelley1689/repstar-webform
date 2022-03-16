@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-repstarwebform-staging-10503-authRole",
+      "UnauthRoleArn": "arn:aws:iam::522318202802:role/amplify-repstarwebform-staging-10503-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::522318202802:role/amplify-repstarwebform-staging-10503-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-repstarwebform-staging-10503-deployment",
+      "UnauthRoleName": "amplify-repstarwebform-staging-10503-unauthRole",
+      "StackName": "amplify-repstarwebform-staging-10503",
+      "StackId": "arn:aws:cloudformation:us-east-1:522318202802:stack/amplify-repstarwebform-staging-10503/1ce2a210-a4c5-11ec-a6db-128ea2a578cb",
+      "AmplifyAppId": "d20f3nfyriil30"
+    }
+  }
+}
