@@ -14,9 +14,7 @@ export default async function Update(id,completedReview){
 
     await API.graphql({
         query: updateReview,
-        variables: {input: updatedReview},
-        authMode: 'API_KEY',
-        authToken: 'da2-o5ssmndjnnbfnnx6b3ggnypu3a'
+        variables: {input: updatedReview}
     })
     
 }
