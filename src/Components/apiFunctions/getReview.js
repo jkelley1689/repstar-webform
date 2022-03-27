@@ -1,21 +1,15 @@
-import { API } from 'aws-amplify'
 import { useState, useEffect } from 'react'
-import { getReview } from '../../GraphQL/queries'
+import { GET_REVIEW }  from './gql/gqlFunctions'
+import { useGQLQuery } from './gql/useGQLFunctions'
 
 export default function FetchReview(id){
 
-    const [review, setReview] = useState([])
-    useEffect(() => {
-        fetch()
-    },[])
+    const {data,isLoading, error} = useGQLQuery('getReview',GET_REVIEW, {
+        id: id
+    })
+    //console.log(data)
 
-    async function fetch(){
-        //const reviewId = id
-        const reviewData = await API.graphql({
-            query: getReview,
-            variables: { id }
-        })
-        setReview(reviewData.data.getReview)
-    }
-    return review
+    if(isLoading) return <div>Loading....</div>
+    if(error) return <div>{error}</div>
+    return data
 }

@@ -5,7 +5,9 @@ import FetchReview from '../../Components/apiFunctions/getReview'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import './helper.css'
-import Update from '../../Components/apiFunctions/updateReview'
+import { graphQLClient } from '../../Components/apiFunctions/gql/useGQLFunctions'
+import { useMutation } from 'react-query'
+import { UPDATE_REVIEW } from '../../Components/apiFunctions/gql/gqlFunctions'
 
 export default function ReviewForm(){
     const { id } = useParams()
@@ -13,6 +15,16 @@ export default function ReviewForm(){
 
     let review = {}
     let navigate = useNavigate()
+
+    const newReview = useMutation((updatedReview) => {
+        return graphQLClient.request(UPDATE_REVIEW,updatedReview)
+    })
+
+    function checkIfCompleted(){
+        if(blankReview.getReview._version > 1){
+            return true
+        }
+    }
     
 
     return(
@@ -21,11 +33,17 @@ export default function ReviewForm(){
             <Formik
             initialValues={{ title: "" , comment: "", starRating: 0}}
             onSubmit={async values => {
+                if(checkIfCompleted()){
+                    navigate('/review-already-complete')
+                }else{
                 await new Promise(resolve => setTimeout(resolve, 500));
                 //alert(JSON.stringify(values, null, 2));
-                review = {title:values.title,comment:values.comment,starRating:parseInt(values.starRating),reviewStatus:1, _version:blankReview._version}
+                console.log(blankReview.getReview._version)
+                review = {input:{id: id, title:values.title,comment:values.comment,starRating:parseInt(values.starRating),reviewStatus:1, _version:blankReview.getReview._version}}
                 console.log(review)
-                Update(id, review).then(navigate('/complete'))
+                newReview.mutate(review)
+                navigate('/complete')
+                }
             }}
             validationSchema={Yup.object().shape({
                 title: Yup.string().required("Required"),
