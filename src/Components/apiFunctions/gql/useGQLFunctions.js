@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 
 
 const endpoint  = 'https://5sz72i2mazbhhmcg3pfrvseyai.appsync-api.us-east-1.amazonaws.com/graphql'
-    const apiToken = 'da2-xo6e6zduv5dwtkthfitpavrjiu'
+    const apiToken = 'da2-nzq6ijdg7bhozh3xqmfpcf6psm'
     const headers = {
         headers: {
             'x-api-key': apiToken
