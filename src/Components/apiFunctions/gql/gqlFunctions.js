@@ -59,3 +59,17 @@ export const UPDATE_REVIEW = gql`
         }
     }
     `
+export const CREATE_REVIEW_NOTIFICATIONS = gql`
+    mutation($input: CreateReviewNotificationsInput!){
+        createReviewNotifications (input: $input){
+            reviewID
+            customerID
+            userID
+            title
+            comment
+            starRating
+            reviewStatus
+            reviewCatagory
+        }
+    }
+`

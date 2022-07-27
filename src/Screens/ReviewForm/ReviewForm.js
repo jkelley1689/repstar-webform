@@ -8,16 +8,22 @@ import './helper.css'
 import { graphQLClient } from '../../Components/apiFunctions/gql/useGQLFunctions'
 import { useMutation } from 'react-query'
 import { UPDATE_REVIEW } from '../../Components/apiFunctions/gql/gqlFunctions'
+import { CREATE_REVIEW_NOTIFICATIONS } from '../../Components/apiFunctions/gql/gqlFunctions'
 
 export default function ReviewForm(){
     const { id } = useParams()
     const blankReview = FetchReview(id)
 
     let review = {}
+    let notification = {}
     let navigate = useNavigate()
 
     const newReview = useMutation((updatedReview) => {
         return graphQLClient.request(UPDATE_REVIEW,updatedReview)
+    })
+
+    const newReviewNotification = useMutation((newNotification) => {
+        return graphQLClient.request(CREATE_REVIEW_NOTIFICATIONS, newNotification)
     })
 
     function checkIfCompleted(){
@@ -39,9 +45,27 @@ export default function ReviewForm(){
                 await new Promise(resolve => setTimeout(resolve, 500));
                 //alert(JSON.stringify(values, null, 2));
                 console.log(blankReview.getReview._version)
-                review = {input:{id: id, title:values.title,comment:values.comment,starRating:parseInt(values.starRating),reviewStatus:1, _version:blankReview.getReview._version}}
+                review = {input:{
+                    id: id, 
+                    title:values.title,
+                    comment:values.comment,
+                    starRating:parseInt(values.starRating),
+                    reviewStatus:3,
+                    _version:blankReview.getReview._version
+                }}
+                notification = {input:{
+                    reviewID: id,
+                    customerID: blankReview.getReview.customerID,
+                    userID: blankReview.getReview.userID,
+                    title: values.title,
+                    comment: values.comment,
+                    starRating: parseInt(values.starRating),
+                    reviewStatus: 3,
+                    reviewCatagory: blankReview.getReview.reviewCatagory
+                }}
                 console.log(review)
                 newReview.mutate(review)
+                newReviewNotification.mutate(notification)
                 navigate('/complete')
                 }
             }}
