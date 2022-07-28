@@ -50,7 +50,7 @@ export default function ReviewForm(){
                     title:values.title,
                     comment:values.comment,
                     starRating:parseInt(values.starRating),
-                    reviewStatus:3,
+                    reviewStatus:1,
                     _version:blankReview.getReview._version
                 }}
                 notification = {input:{
@@ -60,7 +60,7 @@ export default function ReviewForm(){
                     title: values.title,
                     comment: values.comment,
                     starRating: parseInt(values.starRating),
-                    reviewStatus: 3,
+                    reviewStatus: 1,
                     reviewCatagory: blankReview.getReview.reviewCatagory
                 }}
                 console.log(review)
