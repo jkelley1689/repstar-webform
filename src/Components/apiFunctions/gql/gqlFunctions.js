@@ -21,6 +21,42 @@ export const GET_REVIEW = gql`
         }
     }`
 
+export const GET_USER = gql`
+    query($id: ID!) {
+        getUser(id: $id){
+            id
+            firstName
+            lastName
+            email
+            Profile {
+                id
+                companyName
+                title
+                image
+                cellPhone
+                primaryLanguage
+                zipCode
+                avgRating
+                aboutMe
+                workPhone
+            }
+            Reviews {
+                items{
+                    id
+                    title
+                    comment
+                    starRating
+                    dateTime
+                    userID
+                    customerID
+                    reviewCatagory
+                    reviewStatus
+                }
+            }
+        }
+    }
+`
+
 export const LIST_REVIEWS = gql`
     query {
         listReviews {
