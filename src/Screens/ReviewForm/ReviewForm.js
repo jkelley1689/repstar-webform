@@ -31,11 +31,12 @@ export default function ReviewForm(){
             return true
         }
     }
+    console.log(blankReview)
     
 
     return(
         <div className='app'>
-            <h1>Please fill out the review below</h1>
+            <h1>Thank you for trusting me with your purchase! Please take a quick moment to fill out the below review</h1>
             <Formik
             initialValues={{ title: "" , comment: "", starRating: 0}}
             onSubmit={async values => {

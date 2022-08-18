@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { GET_REVIEW }  from './gql/gqlFunctions'
 import { useGQLQuery } from './gql/useGQLFunctions'
 

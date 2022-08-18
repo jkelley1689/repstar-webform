@@ -7,6 +7,8 @@ export const GET_REVIEW = gql`
             id
             title
             comment
+            customerFirstName
+            customerLastName
             starRating
             dateTime
             userID
@@ -45,12 +47,15 @@ export const GET_USER = gql`
                     id
                     title
                     comment
+                    customerFirstName
+                    customerLastName
                     starRating
                     dateTime
                     userID
                     customerID
                     reviewCatagory
                     reviewStatus
+                    updatedAt
                 }
             }
         }
@@ -62,6 +67,8 @@ export const LIST_REVIEWS = gql`
         listReviews {
             items {
                 comment
+                customerFirstName
+                customerLastName
                 createdAt
                 dateTime
                 reviewCatagory
@@ -109,3 +116,15 @@ export const CREATE_REVIEW_NOTIFICATIONS = gql`
         }
     }
 `
+
+export const LIST_CUSTOMERS = gql`
+    query {
+        listCustomers {
+            items {
+                firstName
+                lastName
+                id
+            }
+        }
+    }
+    `
