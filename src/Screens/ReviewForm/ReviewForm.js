@@ -45,7 +45,7 @@ export default function ReviewForm(){
                 }else{
                 await new Promise(resolve => setTimeout(resolve, 500));
                 //alert(JSON.stringify(values, null, 2));
-                console.log(blankReview.getReview._version)
+                console.log(blankReview.getReview)
                 review = {input:{
                     id: id, 
                     title:values.title,
@@ -57,6 +57,8 @@ export default function ReviewForm(){
                 notification = {input:{
                     reviewID: id,
                     customerID: blankReview.getReview.customerID,
+                    customerFirstName: blankReview.getReview.customerFirstName,
+                    customerLastName: blankReview.getReview.customerLastName,
                     userID: blankReview.getReview.userID,
                     title: values.title,
                     comment: values.comment,
