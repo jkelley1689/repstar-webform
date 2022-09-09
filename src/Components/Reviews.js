@@ -13,7 +13,7 @@ export const Reviews = (props) => {
     console.log('before sort:')
     console.log(finishedReviews)
 
-    finishedReviews.sort((date1, date2) => date1.updatedAt - date2.updatedAt)
+    finishedReviews.sort((date1, date2) => new Date(date2.updatedAt) - new Date(date1.updatedAt))
 
     console.log('after sort')
     console.log(finishedReviews)
