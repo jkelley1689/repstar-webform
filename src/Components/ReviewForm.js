@@ -1,18 +1,17 @@
 import { Rating } from '@mui/material'
 import React from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import FetchReview from '../../Components/apiFunctions/getReview'
+import { useNavigate } from 'react-router-dom'
+import FetchReview from './apiFunctions/getReview'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import './helper.css'
-import { graphQLClient } from '../../Components/apiFunctions/gql/useGQLFunctions'
+import { graphQLClient } from './apiFunctions/gql/useGQLFunctions'
 import { useMutation } from 'react-query'
-import { UPDATE_REVIEW } from '../../Components/apiFunctions/gql/gqlFunctions'
-import { CREATE_REVIEW_NOTIFICATIONS } from '../../Components/apiFunctions/gql/gqlFunctions'
+import { UPDATE_REVIEW } from './apiFunctions/gql/gqlFunctions'
+import { CREATE_REVIEW_NOTIFICATIONS } from './apiFunctions/gql/gqlFunctions'
 
-export default function ReviewForm(){
-    const { id } = useParams()
-    const blankReview = FetchReview(id)
+export default function ReviewForm(props){
+    const blankReview = FetchReview(props.id)
 
     let review = {}
     let notification = {}
@@ -47,7 +46,7 @@ export default function ReviewForm(){
                 //alert(JSON.stringify(values, null, 2));
                 console.log(blankReview.getReview)
                 review = {input:{
-                    id: id, 
+                    id: props.id, 
                     title:values.title,
                     comment:values.comment,
                     starRating:parseInt(values.starRating),
@@ -55,7 +54,7 @@ export default function ReviewForm(){
                     _version:blankReview.getReview._version
                 }}
                 notification = {input:{
-                    reviewID: id,
+                    reviewID: props.id,
                     customerID: blankReview.getReview.customerID,
                     customerFirstName: blankReview.getReview.customerFirstName,
                     customerLastName: blankReview.getReview.customerLastName,
@@ -111,13 +110,12 @@ export default function ReviewForm(){
                     {errors.title && touched.title && (
                     <div className="input-feedback">{errors.title}</div>
                     )}
-                    <label htmlFor="comment" style={{ display: "block" }}>
+                    <label htmlFor="comment" style={{ display: "block", paddingTop: 8 }}>
                     Please tell me about your experience with me
                     </label>
-                    <input
+                    <textarea
                     id="comment"
                     placeholder="Please place your comment here"
-                    type="text"
                     value={values.comment}
                     onChange={handleChange}
                     onBlur={handleBlur}

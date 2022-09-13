@@ -1,8 +1,8 @@
-import ReviewForm from '../src/Screens/ReviewForm/ReviewForm'
 import ReviewComplete from './Screens/ReviewComplete/ReviewComplete'
 import ReviewNotSent from './Screens/ReviewComplete/ReviewNotSent'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import UserInfoPage from './Screens/User/UserInfoPage'
+import ReviewSubmit from './Screens/ReviewForm/ReviewSubmit'
 
 
 
@@ -13,7 +13,7 @@ function App() {
     <Router>
     <div className="App">
       <Routes>
-        <Route path='review/:id' element={<ReviewForm />} />
+        <Route path='review/:id' element={<ReviewSubmit />} />
         <Route path='complete' element={<ReviewComplete />} />
         <Route path='review-already-complete' element={<ReviewNotSent />} />
         <Route path='repInfo/:id' element={<UserInfoPage />} />

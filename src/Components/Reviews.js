@@ -10,13 +10,7 @@ export const Reviews = (props) => {
     const reviews = props.reviews
     const finishedReviews = filterFinishedReviews(reviews)
 
-    console.log('before sort:')
-    console.log(finishedReviews)
-
     finishedReviews.sort((date1, date2) => new Date(date2.updatedAt) - new Date(date1.updatedAt))
-
-    console.log('after sort')
-    console.log(finishedReviews)
     
   return (
     <div className='reviews' id='reviews'>
