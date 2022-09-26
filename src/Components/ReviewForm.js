@@ -1,5 +1,5 @@
 import { Rating } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import FetchReview from './apiFunctions/getReview'
 import { Formik } from 'formik'
@@ -11,6 +11,11 @@ import { UPDATE_REVIEW } from './apiFunctions/gql/gqlFunctions'
 import { CREATE_REVIEW_NOTIFICATIONS } from './apiFunctions/gql/gqlFunctions'
 
 export default function ReviewForm(props){
+
+    useEffect(() => {
+        document.title = 'Repstar - Complete Review'
+    },[])
+
     const blankReview = FetchReview(props.id)
 
     let review = {}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 import { GET_USER }  from '../../Components/apiFunctions/gql/gqlFunctions'
@@ -12,6 +12,11 @@ import calcAvgRating from "../../Components/calcAvgRating";
 
 
 const UserInfoPage = () => {
+
+    useEffect(() => {
+        document.title = 'Repstar - View Salesperson Information and Reviews'
+    },[])
+
     const { id } = useParams()
 
     const {data,isLoading, error} = useGQLQuery('getUser',GET_USER, {
