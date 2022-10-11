@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import ReviewHeader from '../../Components/ReviewHeader'
 
+import './NotFound.css'
+
 const NotFound = () => {
 
 useEffect(() => {
@@ -10,7 +12,9 @@ useEffect(() => {
   return (
     <div>
         <ReviewHeader />
-        <text>404 Page Not Found</text>
+        <div className='notFound'>
+            <h2>404 Page Not Found</h2>
+        </div>
     </div>
   )
 }

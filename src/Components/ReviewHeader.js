@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../Images/favicon.ico'
+import logo from '../Images/icon.png'
 
 import './ReviewHeader.css'
 
