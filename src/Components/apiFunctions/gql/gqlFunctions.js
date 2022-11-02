@@ -41,6 +41,10 @@ export const GET_USER = gql`
                 avgRating
                 aboutMe
                 workPhone
+                facebook
+                instagram
+                twitter
+                linkedIn
             }
             Reviews {
                 items{

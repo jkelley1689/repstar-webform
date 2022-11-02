@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ReviewHeader from '../../Components/ReviewHeader'
 
 export default function ReviewNotSent(){
 
@@ -7,6 +8,9 @@ export default function ReviewNotSent(){
     },[])
 
     return(
-        <h1>This review has already been submitted, edits to the review are not allowed</h1>
+        <div>
+            <ReviewHeader />
+            <h1>This review has already been submitted, edits to the review are not allowed</h1>
+        </div>
     )
 }

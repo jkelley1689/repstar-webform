@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ReviewHeader from '../../Components/ReviewHeader'
 
 export default function ReviewComplete(){
 
@@ -7,6 +8,9 @@ export default function ReviewComplete(){
     },[])
 
     return(
-        <h1>Thank you for your submission, your review is extremely helpful to me!</h1>
+        <div>
+            <ReviewHeader />
+            <h1>Thank you for your submission, your review is extremely helpful to me!</h1>
+        </div>
     )
 }

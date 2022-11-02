@@ -27,6 +27,8 @@ const UserInfoPage = () => {
 
     const avgRating = calcAvgRating(data.getUser.Reviews.items)
 
+    console.log(data)
+
     const user = {
         firstName: data.getUser.firstName,
         lastName: data.getUser.lastName,
@@ -39,7 +41,11 @@ const UserInfoPage = () => {
         zipCode: data.getUser.Profile.zipCode,
         aboutMe: data.getUser.Profile.aboutMe,
         workPhone: data.getUser.Profile.workPhone,
-        avgRating: avgRating
+        avgRating: avgRating,
+        facebook: data.getUser.Profile.facebook,
+        instagram: data.getUser.Profile.instagram,
+        twitter: data.getUser.Profile.twitter,
+        linkedIn: data.getUser.Profile.linkedIn
     }
 
     if(error) return <div>{error}</div>

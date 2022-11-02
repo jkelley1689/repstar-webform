@@ -41,6 +41,11 @@
     font-weight: 600;
     padding-top: 1rem;
 }
+.about .social img{
+    width: auto;
+    height: auto;
+    padding: .5rem;
+}
 @media screen and (max-width:940px) {
     .about {
         padding: 1rem 1rem 1rem 1.2rem
@@ -60,5 +65,10 @@
     }
     .about button {
         margin-bottom: 1rem;
+    }
+    .about .social img{
+        width: auto;
+        height: auto;
+        padding: .5rem;
     }
 }

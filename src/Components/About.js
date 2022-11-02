@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import './About.css'
 import ReactStars from 'react-stars'
 
+import instagram from '../Images/Instagram - Original.png'
+import facebook from '../Images/Facebook - Original.png'
+import twitter from '../Images/Twitter - Original.png'
+import linkedIn from '../Images/LinkedIn - Original.png'
+
 var AWS = require('aws-sdk')
 
 const About = (props) => {
@@ -27,7 +32,7 @@ const About = (props) => {
         setPhoto(url)
     })
     
-    
+    console.log(props.user)
 
     return (
         <div className='about' id='about'>
@@ -44,6 +49,12 @@ const About = (props) => {
                     <p>{props.user.title} at {props.user.companyName}</p>
                     <a href={cell}>Cell: {props.user.cellPhone}</a>
                     <a href={work}>Work: {props.user.workPhone}</a>
+                    <div className='social'>
+                        <a href={props.user.facebook} > <img src={facebook} alt='fb' onClick={props.user.facebook}></img></a>
+                        <a href={props.user.instagram} > <img src={instagram} alt='insta' onClick={props.user.instagram}></img></a>
+                        <a href={props.user.twitter} > <img src={twitter} alt='tw' onClick={props.user.twitter}></img></a>
+                        <a href={props.user.linkedIn} > <img src={linkedIn} alt='linked' onClick={props.user.linkedIn}></img></a>
+                    </div>
                     <p>About </p>
                     <span className='line'></span>
                     <p>{props.user.aboutMe}</p>
