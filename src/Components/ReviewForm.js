@@ -10,6 +10,8 @@ import { useMutation } from 'react-query'
 import { UPDATE_REVIEW } from './apiFunctions/gql/gqlFunctions'
 import { CREATE_REVIEW_NOTIFICATIONS } from './apiFunctions/gql/gqlFunctions'
 
+import './ReviewForm.css'
+
 export default function ReviewForm(props){
 
     useEffect(() => {
@@ -39,7 +41,7 @@ export default function ReviewForm(props){
     
 
     return(
-        <div className='app'>
+        <div className='form'>
             <h1>Thank you for trusting me with your purchase! Please take a quick moment to fill out the below review</h1>
             <Formik
             initialValues={{ title: "" , comment: "", starRating: 0}}

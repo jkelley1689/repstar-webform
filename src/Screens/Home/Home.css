@@ -1,4 +1,6 @@
-
+.underConstruction{
+    padding: 5rem 1rem 2rem 2rem;
+}
 @media screen and (max-width:940px) {
 .underConstruction .image{
     padding: 0rem;
