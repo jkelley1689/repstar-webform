@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom"
 
 import { GET_USER }  from '../../Components/apiFunctions/gql/gqlFunctions'
 import { useGQLQuery } from '../../Components/apiFunctions/gql/useGQLFunctions'
@@ -12,6 +13,8 @@ import calcAvgRating from "../../Components/calcAvgRating";
 
 
 const UserInfoPage = () => {
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         document.title = 'Repstar - View Salesperson Information and Reviews'
@@ -50,13 +53,20 @@ const UserInfoPage = () => {
 
     if(error) return <div>{error}</div>
 
+    if(data.getUser._deleted === true){
+        //console.log('This person doesnt exist!!')
+        navigate('/')
+    }else{
+    
     return(
         <div>
             <Navbar />
             <About user={user} />
             <Reviews reviews={data.getUser.Reviews.items}/>
         </div>
-    )
+        )
+    }
+    
     
 }
 

@@ -30,6 +30,7 @@ export const GET_USER = gql`
             firstName
             lastName
             email
+            _deleted
             Profile {
                 id
                 companyName
