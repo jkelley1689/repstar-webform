@@ -1,5 +1,5 @@
 .header {
-    position: relative;
+    position: fixed;
     height: 90px;
     width: 100%;
     top: 0;
@@ -17,13 +17,9 @@
     height: 100%;
     padding: 0 1rem;
 }
-.header .navbar img {
+.header .navbar img:first-of-type{
     width: 100px;
     height: auto;
-}
-.header .navbar .repstar{
-    align-items: flex-start;
-    padding-right: 50rem;
 }
 .header .nav-menu {
     display: flex;

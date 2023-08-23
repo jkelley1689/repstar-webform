@@ -11,6 +11,8 @@ export const Reviews = (props) => {
     const finishedReviews = filterFinishedReviews(reviews)
 
     finishedReviews.sort((date1, date2) => new Date(date2.updatedAt) - new Date(date1.updatedAt))
+
+    console.log(finishedReviews)
     
   return (
     <div className='reviews' id='reviews'>
@@ -27,6 +29,11 @@ export const Reviews = (props) => {
                     <p>{convertDate(review.updatedAt)}</p>
                     <p>{review.comment}</p>
                     <p><span>{review.customerFirstName} {review.customerLastName}</span></p>
+                    {
+                        review.customerTitle != null && review.customerCompany != null
+                        ?(<p>{review.customerTitle} at {review.customerCompany}</p>)
+                        :null
+                    }
                 </div>
             </div>
             ))}

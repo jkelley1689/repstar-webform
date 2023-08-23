@@ -54,6 +54,8 @@ export const GET_USER = gql`
                     comment
                     customerFirstName
                     customerLastName
+                    customerTitle
+                    customerCompany
                     starRating
                     dateTime
                     userID
@@ -74,6 +76,8 @@ export const LIST_REVIEWS = gql`
                 comment
                 customerFirstName
                 customerLastName
+                customerTitle
+                customerCompany
                 createdAt
                 dateTime
                 reviewCatagory
@@ -86,6 +90,21 @@ export const LIST_REVIEWS = gql`
         }
     }
     `
+
+export const LIST_USERS = gql`
+    query {
+        listUsers {
+            items {
+                firstName
+                lastName
+                id
+                Profile {
+                    companyName
+                }
+            }
+        }
+    }
+`
 
 export const UPDATE_REVIEW = gql`
     mutation($input: UpdateReviewInput!) {
