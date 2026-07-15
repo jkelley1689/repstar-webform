@@ -18,8 +18,8 @@ const About = (props) => {
 
     const [photo,setPhoto] = useState(null)
 
-    var s3 = new AWS.S3({accessKeyId:'AKIAXTHEXI6ZFVXV2F3R', 
-    secretAccessKey: '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', 
+    var s3 = new AWS.S3({accessKeyId:'', 
+    secretAccessKey: '', 
     region:'us-east-1'})
 
     var params = {
